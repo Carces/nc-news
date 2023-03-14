@@ -1,3 +1,103 @@
 .App {
   text-align: center;
 }
+
+.page-content {
+  position: relative;
+  top: 20px;
+}
+
+/* NavBar */
+
+.nav-bar {
+  background-color: #2e2e2e;
+  display: flex;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  border-bottom: 2px ridge #969696;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.nav-bar__main-logo {
+  width: 75px;
+  position: absolute;
+  top: -3px;
+  left: -15px;
+}
+
+.nav-bar__main-logo:hover {
+  filter: brightness(1.1);
+}
+
+.nav-bar__topic-button {
+  width: 75px;
+  height: 17px;
+  position: absolute;
+  top: 12px;
+  left: 45px;
+  font-size: 0.8em;
+}
+
+.nav-bar__current-topic {
+  position: relative;
+  bottom: 15px;
+  right: 1px;
+}
+
+/* SearchBar */
+
+.search-bar {
+  width: 75px;
+  height: 17px;
+  position: absolute;
+  top: 5px;
+}
+
+.search-bar__input {
+  width: 125px;
+  display: none;
+}
+
+/* TopicMenu */
+
+.topic-menu {
+  width: 75px;
+  height: 17px;
+  position: absolute;
+  top: 30px;
+  left: 45px;
+}
+
+/* ArticleList */
+
+.article-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* ArticleCard */
+
+.article-card {
+  background-color: rgb(201, 201, 201);
+  margin: 10px 0;
+  padding: 10px 0;
+}
+
+.article-card__header {
+  margin: 10px;
+}
+
+.article-card__img {
+  max-height: 350px;
+  max-width: 100%;
+}
+
+@media screen and (min-device-width: 500px) {
+  .search-bar__input {
+    display: block;
+  }
+}

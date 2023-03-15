@@ -17,7 +17,6 @@ function ArticlePage() {
     setIsLoading(true);
     fetchArticleByID(article_id)
       .then((article) => {
-        console.log(article);
         setArticle(article);
         setIsLoading(false);
       })

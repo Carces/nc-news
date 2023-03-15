@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import NavBar from './components/NavBar';
 import ArticleList from './components/ArticleList';
+import ArticlePage from './components/ArticlePage';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<ArticleList />} />
+        <Route path="/articles/:article_id" element={<ArticlePage />} />
       </Routes>
     </div>
   );

@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from 'react';
-
 import { FiltersContext } from '../contexts/FiltersContext';
 import { fetchArticles } from '../api';
+
 import Alert from '@mui/material/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
 import ArticleCard from './ArticleCard';

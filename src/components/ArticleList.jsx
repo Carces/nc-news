@@ -12,6 +12,7 @@ function ArticleList() {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [isVotingError, setIsVotingError] = useState(false);
 
   useEffect(() => {
     setIsError(false);
@@ -28,7 +29,12 @@ function ArticleList() {
   }, [filters]);
 
   const articleCards = articles.map((article, index) => (
-    <ArticleCard article={article} key={`article-list__index-${index}`} />
+    <ArticleCard
+      article={article}
+      key={`article-list__index-${index}`}
+      setIsVotingError={setIsVotingError}
+      isVotingError={isVotingError}
+    />
   ));
   const errorHTML = (
     <Alert severity="error" className="article-list__error alert">
@@ -39,8 +45,15 @@ function ArticleList() {
     <CircularProgress className="article-list__loading loading" />
   );
 
+  const votingErrorHTML = (
+    <Alert severity="error" className="article-card__error alert">
+      Vote failed. Please try again
+    </Alert>
+  );
+
   return (
     <ul className="article-list page-content">
+      {isVotingError && votingErrorHTML}
       {isError ? errorHTML : isLoading ? loadingHTML : articleCards}
     </ul>
   );

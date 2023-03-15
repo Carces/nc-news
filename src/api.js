@@ -13,3 +13,10 @@ export const fetchArticleByID = (article_id) => {
     return article;
   });
 };
+
+export const patchArticleVotes = (article_id, inc_votes) => {
+  let path = `/articles/${article_id}`;
+  return api
+    .patch(path, { inc_votes })
+    .then(({ data: { updatedArticle } }) => updatedArticle);
+};

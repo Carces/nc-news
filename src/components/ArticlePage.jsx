@@ -10,6 +10,7 @@ function ArticlePage() {
   const [article, setArticle] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [isVotingError, setIsVotingError] = useState(false);
   const { article_id } = useParams();
 
   useEffect(() => {
@@ -36,13 +37,25 @@ function ArticlePage() {
     </Alert>
   );
 
+  const votingErrorHTML = (
+    <Alert severity="error" className="article-card__error alert">
+      Vote failed. Please try again
+    </Alert>
+  );
+
   return (
     <article className="article-page">
+      {isVotingError && votingErrorHTML}
+      {isError && errorHTML}
       {isLoading ? (
         loadingHTML
       ) : (
         <>
-          <ArticleCard article={article} />
+          <ArticleCard
+            article={article}
+            setIsVotingError={setIsVotingError}
+            isVotingError={isVotingError}
+          />
           <section className="article-page__comments">COMMENTS</section>
         </>
       )}

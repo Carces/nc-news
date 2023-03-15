@@ -8,8 +8,11 @@ a {
 }
 
 .alert {
-  position: relative;
-  top: 5px;
+  position: fixed;
+  top: 50px;
+  left: 0px;
+  width: 100%;
+  z-index: 2;
 }
 
 .loading {
@@ -21,6 +24,10 @@ a {
   position: relative;
   top: 20px;
 }
+
+/* .voted {
+  color: #cc2424;
+} */
 
 /* NavBar */
 
@@ -90,6 +97,8 @@ a {
 /* ArticleList */
 
 .article-list {
+  position: relative;
+  top: 30px;
   list-style-type: none;
   padding: 0;
   display: flex;
@@ -101,8 +110,8 @@ a {
 /* ArticleCard */
 
 .article-card {
-  background-color: rgb(201, 201, 201);
-  margin: 10px 0;
+  background-color: rgb(233, 233, 233);
+  margin: 5px 0;
   padding: 10px 0;
   position: relative;
   border: 1px solid rgb(187, 187, 187);
@@ -111,6 +120,7 @@ a {
 
 .article-card__header {
   margin: 10px;
+  margin-top: 20px;
 }
 
 .article-card__img {
@@ -128,7 +138,12 @@ a {
   margin: 10px;
 }
 
+.info-bar {
+  margin-top: 0;
+}
+
 .info-bar__share-button {
+  display: block;
   position: absolute;
   top: 5px;
   right: 5px;

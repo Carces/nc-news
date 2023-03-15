@@ -5,6 +5,8 @@ import { fetchArticleByID } from '../api';
 import Alert from '@mui/material/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
 import ArticleCard from './ArticleCard';
+import CommentList from './CommentList';
+import CommentBox from './CommentBox';
 
 function ArticlePage() {
   const [article, setArticle] = useState(null);
@@ -44,7 +46,9 @@ function ArticlePage() {
       ) : (
         <>
           <ArticleCard article={article} />
-          <section className="article-page__comments">COMMENTS</section>
+          <section className="article-page__comments">
+            <CommentList article_id={article_id} />
+          </section>
         </>
       )}
     </article>

@@ -9,8 +9,7 @@ function CommentCard({ comment }) {
   return (
     <li className="comment-card">
       <p className="comment-card__info-bar">
-        Posted in: <span className="info-bar__topic">{topic}</span>
-        {' | '}on: <span className="info-bar__date">{date}</span>
+        Posted on: <span className="info-bar__date">{date}</span>
       </p>
       <h3 className="comment-card__author">{author}</h3>
       <p className="comment-card__body">{body}</p>

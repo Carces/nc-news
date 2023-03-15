@@ -17,7 +17,6 @@ function ArticleList() {
     setIsLoading(true);
     fetchArticles(filters)
       .then((articles) => {
-        console.log(articles);
         setArticles(articles);
         setIsLoading(false);
       })
@@ -35,7 +34,9 @@ function ArticleList() {
       Failed to load articles
     </Alert>
   );
-  const loadingHTML = <CircularProgress />;
+  const loadingHTML = (
+    <CircularProgress className="article-list__loading loading" />
+  );
 
   return (
     <ul className="article-list page-content">

@@ -10,7 +10,6 @@ export const fetchArticles = (filters) => {
 export const fetchArticleByID = (article_id) => {
   let path = `/articles/${article_id}`;
   return api.get(path).then(({ data: { article } }) => {
-    console.log(article, '<<< FROM FETCH ID');
     return article;
   });
 };

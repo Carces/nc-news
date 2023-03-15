@@ -13,3 +13,15 @@ export const fetchArticleByID = (article_id) => {
     return article;
   });
 };
+
+export const fetchComments = (article_id) => {
+  let path = `/articles/${article_id}/comments`;
+  return api.get(path).then(({ data: { comments } }) => comments);
+};
+
+export const postComment = (article_id, comment) => {
+  let path = `/articles/${article_id}/comments`;
+  return api
+    .post(path, comment)
+    .then(({ data: { postedComment } }) => postedComment);
+};

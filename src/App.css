@@ -211,6 +211,29 @@ a {
   border-top-right-radius: 3px;
 }
 
+/* SideBar */
+
+.side-bar {
+  position: relative;
+  top: 60px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 10px;
+}
+
+.side-bar__button {
+  padding: 0;
+  margin: 0;
+}
+
+.side-bar__section {
+  background-color: rebeccapurple;
+  display: flex;
+  flex-direction: column;
+}
+
 @media screen and (min-device-width: 500px) {
   .search-bar__input {
     display: block;

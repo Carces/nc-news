@@ -20,6 +20,7 @@ export const fetchComments = (article_id) => {
 };
 
 export const postComment = (article_id, comment) => {
+  console.log(comment);
   let path = `/articles/${article_id}/comments`;
   return api
     .post(path, comment)

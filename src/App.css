@@ -158,6 +158,44 @@ a {
   border-radius: 3px;
 }
 
+/* CommentBox */
+
+.comment-box {
+  text-align: center;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.comment-box__input {
+  width: 90.5%;
+  height: 50px;
+  resize: none;
+  border-radius: 0;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.comment-box__button {
+  position: absolute;
+  right: 15px;
+  bottom: 4px;
+}
+
+.comment-box__header {
+  background-color: #bebebe;
+  position: relative;
+  top: 2px;
+  text-align: left;
+  margin: 0 15px;
+  margin-left: 15px;
+  font-size: 0.85em;
+  padding: 5px;
+  padding-top: 1px;
+  border: 1px solid black;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
 @media screen and (min-device-width: 500px) {
   .search-bar__input {
     display: block;

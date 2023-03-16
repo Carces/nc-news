@@ -7,8 +7,8 @@ export const fetchArticles = (filters) => {
   return api.get(path).then(({ data: { articles } }) => articles);
 };
 
-export const fetchArticleByID = (article_id) => {
-  let path = `/articles/${article_id}`;
+export const fetchArticleByID = (article_id, username) => {
+  let path = `/articles/${article_id}?current_user=${username}`;
   return api.get(path).then(({ data: { article } }) => {
     return article;
   });
@@ -24,4 +24,18 @@ export const postComment = (article_id, comment) => {
   return api
     .post(path, comment)
     .then(({ data: { postedComment } }) => postedComment);
+};
+
+export const patchArticleVotes = (article_id, inc_votes) => {
+  let path = `/articles/${article_id}`;
+  return api
+    .patch(path, { inc_votes })
+    .then(({ data: { updatedArticle } }) => updatedArticle);
+};
+
+export const patchUserArticleVotes = (username, article_id, vote_value) => {
+  let path = `/users/${username}`;
+  return api
+    .patch(path, { article_id, vote_value })
+    .then(({ data: { updatedUser } }) => updatedUser);
 };

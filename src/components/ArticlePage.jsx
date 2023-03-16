@@ -6,6 +6,8 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import Alert from '@mui/material/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
 import ArticleCard from './ArticleCard';
+import CommentList from './CommentList';
+import CommentBox from './CommentBox';
 
 function ArticlePage() {
   const [article, setArticle] = useState({
@@ -70,7 +72,9 @@ function ArticlePage() {
             setIsVotingError={setIsVotingError}
             isVotingError={isVotingError}
           />
-          <section className="article-page__comments">COMMENTS</section>
+          <section className="article-page__comments">
+            <CommentList article_id={article_id} />
+          </section>
         </>
       )}
     </article>

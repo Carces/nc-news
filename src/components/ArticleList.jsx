@@ -1,5 +1,4 @@
 import { useState, useContext, useEffect } from 'react';
-
 import { FiltersContext } from '../contexts/FiltersContext';
 import { fetchArticles } from '../api';
 

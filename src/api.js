@@ -14,6 +14,18 @@ export const fetchArticleByID = (article_id, username) => {
   });
 };
 
+export const fetchComments = (article_id) => {
+  let path = `/articles/${article_id}/comments`;
+  return api.get(path).then(({ data: { comments } }) => comments);
+};
+
+export const postComment = (article_id, comment) => {
+  let path = `/articles/${article_id}/comments`;
+  return api
+    .post(path, comment)
+    .then(({ data: { postedComment } }) => postedComment);
+};
+
 export const patchArticleVotes = (article_id, inc_votes) => {
   let path = `/articles/${article_id}`;
   return api

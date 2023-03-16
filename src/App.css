@@ -110,8 +110,8 @@ a {
 /* ArticleCard */
 
 .article-card {
-  background-color: rgb(233, 233, 233);
-  margin: 5px 0;
+  background-color: rgb(221, 221, 221);
+  margin: 10px 0;
   padding: 10px 0;
   position: relative;
   border: 1px solid rgb(187, 187, 187);
@@ -155,9 +155,22 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   position: relative;
   top: 40px;
   list-style-type: none;
+}
+
+/* CommentList */
+
+.comment-list {
+  /* width: 50vw; */
+}
+
+.comment-card {
+  background-color: rgb(221, 221, 221);
+  padding: 10px;
+  border-radius: 3px;
 }
 
 @media screen and (min-device-width: 500px) {

@@ -32,18 +32,17 @@ function NavBar() {
   const [currentTopic, setCurrentTopic] = useState('Home');
   const [userMenuShown, setUserMenuShown] = useState(false);
   const [topicMenuShown, setTopicMenuShown] = useState(false);
-  const [topicFromURL, setTopicFromURL] = useState(null);
   const { currentUser } = useContext(CurrentUserContext);
-  const { topic } = useParams();
+  const URLSections = window.location.href.split('/');
+  const topic = URLSections[URLSections.length - 1];
   const mobileScreenMatcher = window.matchMedia('(max-width: 500px)');
   //   console.log(mobileScreenMatcher.matches);
 
-  console.log(window.location.href);
-
   useEffect(() => {
-    console.log('eff', topic);
-    if (topic) setCurrentTopic(topic);
-    else setCurrentTopic('Home');
+    if (topic) {
+      const formattedTopic = topic.charAt(0).toUpperCase() + topic.slice(1);
+      setCurrentTopic(formattedTopic);
+    } else setCurrentTopic('Home');
   });
 
   return (

@@ -30,7 +30,7 @@ function ArticleList() {
         setIsLoading(false);
       })
       .catch((err) => {
-        console.log(err, 'hi');
+        console.log(err);
         setIsError(true);
       });
   }, [filters]);

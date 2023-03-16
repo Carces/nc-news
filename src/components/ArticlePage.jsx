@@ -1,22 +1,36 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchArticleByID } from '../api';
+import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 import Alert from '@mui/material/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
 import ArticleCard from './ArticleCard';
 
 function ArticlePage() {
-  const [article, setArticle] = useState(null);
+  const [article, setArticle] = useState({
+    article_id: 0,
+    author: '',
+    topic: '',
+    title: '',
+    created_at: '',
+    votes: 0,
+    article_img_url: '',
+    comment_count: 0,
+    saves: 0,
+  });
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isVotingError, setIsVotingError] = useState(false);
+  const {
+    currentUser: { username },
+  } = useContext(CurrentUserContext);
   const { article_id } = useParams();
 
   useEffect(() => {
     setIsError(false);
     setIsLoading(true);
-    fetchArticleByID(article_id)
+    fetchArticleByID(article_id, username)
       .then((article) => {
         setArticle(article);
         setIsLoading(false);

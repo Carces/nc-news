@@ -3,7 +3,12 @@ import axios from 'axios';
 const api = axios.create({ baseURL: 'https://nc-news-theo.onrender.com/api/' });
 
 export const fetchArticles = (filters) => {
+  const { topic } = filters;
+  console.log(topic, '<< FROM API');
   let path = '/articles';
+  if (topic && topic !== 'Home') path += `?topic=${topic}`;
+  console.log(path, '<<PATH');
+
   return api.get(path).then(({ data: { articles } }) => articles);
 };
 

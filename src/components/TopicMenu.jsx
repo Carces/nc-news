@@ -1,4 +1,5 @@
 import { useState, useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { FiltersContext } from '../contexts/FiltersContext';
 
 function TopicMenu({
@@ -21,33 +22,39 @@ function TopicMenu({
   return (
     <div className="topic-menu">
       {currentTopic === 'Home' ? null : (
-        <button
-          className="topic-menu__button"
-          value="Home"
-          onClick={changeTopic}
-        >
-          Home
-        </button>
+        <Link to="/">
+          <button
+            className="topic-menu__button"
+            value="Home"
+            onClick={changeTopic}
+          >
+            Home
+          </button>
+        </Link>
       )}
 
       {currentTopic === 'Cooking' ? null : (
-        <button
-          className="topic-menu__button"
-          value="Cooking"
-          onClick={changeTopic}
-        >
-          Cooking
-        </button>
+        <Link to="/cooking">
+          <button
+            className="topic-menu__button"
+            value="Cooking"
+            onClick={changeTopic}
+          >
+            Cooking
+          </button>
+        </Link>
       )}
 
       {currentTopic === 'Coding' ? null : (
-        <button
-          className="topic-menu__button"
-          value="Coding"
-          onClick={changeTopic}
-        >
-          Coding
-        </button>
+        <Link to="/coding">
+          <button
+            className="topic-menu__button"
+            value="Coding"
+            onClick={changeTopic}
+          >
+            Coding
+          </button>
+        </Link>
       )}
     </div>
   );

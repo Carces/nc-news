@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { FiltersContext } from '../contexts/FiltersContext';
 
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
@@ -12,6 +12,19 @@ function SideBar() {
   const [sortBy, setSortBy] = useState('Votes');
   const [sortOrder, setSortOrder] = useState('Descending');
   const { filters, setFilters } = useContext(FiltersContext);
+
+  useEffect(() => {
+    setFilters((currentFilters) => {
+      const updatedFilters = { ...currentFilters };
+      if (sortBy === 'Date') updatedFilters.sort_by = 'created_at';
+      else if (sortBy === 'Comments') updatedFilters.sort_by = 'comment_count';
+      else if (sortBy) updatedFilters.sort_by = sortBy.toLowerCase();
+
+      if (sortOrder)
+        updatedFilters.order = sortOrder === 'Descending' ? 'desc' : 'asc';
+      return updatedFilters;
+    });
+  }, [sortBy, sortOrder]);
 
   return (
     <form className="side-bar">

@@ -59,14 +59,15 @@ a {
   width: 75px;
   height: 17px;
   position: absolute;
-  top: 16px;
+  top: 14px;
   left: 45px;
   font-size: 0.8em;
+  padding: 8px 0px;
 }
 
 .nav-bar__current-topic {
   position: relative;
-  bottom: 15px;
+  bottom: 21px;
   right: 1px;
 }
 

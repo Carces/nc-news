@@ -33,7 +33,7 @@ function ArticleList() {
     setFilters((currentFilters) => {
       return { ...currentFilters, topic };
     });
-  }, [topic]);
+  }, [topic, setFilters]);
 
   useEffect(() => {
     setIsError(false);

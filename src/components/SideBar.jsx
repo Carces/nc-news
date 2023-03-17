@@ -11,7 +11,7 @@ function SideBar() {
 
   const [sortBy, setSortBy] = useState('Votes');
   const [sortOrder, setSortOrder] = useState('Descending');
-  const { filters, setFilters } = useContext(FiltersContext);
+  const { setFilters } = useContext(FiltersContext);
 
   useEffect(() => {
     setFilters((currentFilters) => {

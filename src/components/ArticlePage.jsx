@@ -7,7 +7,6 @@ import Alert from '@mui/material/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
 import ArticleCard from './ArticleCard';
 import CommentList from './CommentList';
-import CommentBox from './CommentBox';
 
 function ArticlePage() {
   const [article, setArticle] = useState({
@@ -41,7 +40,7 @@ function ArticlePage() {
         console.log(err);
         setIsError(true);
       });
-  }, [article_id]);
+  }, [article_id, username]);
 
   const loadingHTML = (
     <CircularProgress className="article-page__loading loading" />

@@ -53,6 +53,11 @@ export const patchUserArticleVotes = (username, article_id, vote_value) => {
     .then(({ data: { updatedUser } }) => updatedUser);
 };
 
+export const fetchUser = (username) => {
+  const path = `/users/${username}`;
+  return api.get(path).then(({ data: { user } }) => user);
+};
+
 export const checkIfTopicValid = (topic) => {
   const path = `/topics`;
   return api

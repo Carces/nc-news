@@ -1,14 +1,9 @@
-import { useState, useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FiltersContext } from '../contexts/FiltersContext';
 
-function TopicMenu({
-  currentTopic,
-  setCurrentTopic,
-  topicMenuShown,
-  setTopicMenuShown,
-}) {
-  const { filters, setFilters } = useContext(FiltersContext);
+function TopicMenu({ currentTopic, setCurrentTopic, setTopicMenuShown }) {
+  const { setFilters } = useContext(FiltersContext);
 
   function changeTopic(event) {
     setFilters((currentFilters) => ({
@@ -28,7 +23,7 @@ function TopicMenu({
             value="Home"
             onClick={changeTopic}
           >
-            Home
+            News
           </button>
         </Link>
       )}

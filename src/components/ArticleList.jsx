@@ -6,6 +6,7 @@ import { fetchArticles } from '../api';
 import Alert from '@mui/material/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
 import ArticleCard from './ArticleCard';
+import SideBar from './SideBar';
 
 function ArticleList() {
   const { filters, setFilters } = useContext(FiltersContext);
@@ -59,10 +60,13 @@ function ArticleList() {
   );
 
   return (
-    <ul className="article-list page-content">
-      {isVotingError && votingErrorHTML}
-      {isError ? errorHTML : isLoading ? loadingHTML : articleCards}
-    </ul>
+    <>
+      <SideBar />
+      <ul className="article-list page-content">
+        {isVotingError && votingErrorHTML}
+        {isError ? errorHTML : isLoading ? loadingHTML : articleCards}
+      </ul>
+    </>
   );
 }
 

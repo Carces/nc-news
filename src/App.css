@@ -112,6 +112,7 @@ a {
 .article-card {
   background-color: rgb(221, 221, 221);
   margin: 10px 0;
+  margin-top: 0;
   padding: 10px 0;
   position: relative;
   border: 1px solid rgb(187, 187, 187);
@@ -209,6 +210,57 @@ a {
   border: 1px solid black;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
+}
+
+/* SideBar */
+
+.side-bar {
+  background-color: #bebebe;
+  position: relative;
+  top: 50px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.side-bar__button {
+  padding: 0 5px;
+  width: fit-content;
+  margin: auto;
+}
+
+.side-bar__select {
+  padding: 0;
+  margin: 0;
+  width: fit-content;
+  margin: auto;
+}
+
+.side-bar__section {
+  background-color: rgb(236, 236, 236);
+  display: flex;
+  flex-direction: column;
+  height: 60px;
+  border: 1px solid rgb(110, 110, 110);
+  border-radius: 4px;
+}
+
+.side-bar__sort-by {
+  border-right: none;
+  border-bottom-right-radius: 0;
+}
+
+.side-bar__sort-order {
+  border-left: none;
+  border-bottom-left-radius: 0;
+}
+
+.side-bar__label {
+  background-color: #a82525;
+  font-weight: bold;
+  color: #e7e7e7;
+  padding: 2px 15vw;
 }
 
 @media screen and (min-device-width: 500px) {

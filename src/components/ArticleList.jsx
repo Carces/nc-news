@@ -9,7 +9,7 @@ import ArticleCard from './ArticleCard';
 import SideBar from './SideBar';
 import PageNotFound from './PageNotFound';
 
-function ArticleList() {
+function ArticleList({ currentTopic, setCurrentTopic }) {
   const { filters, setFilters } = useContext(FiltersContext);
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -18,8 +18,6 @@ function ArticleList() {
   const [isVotingError, setIsVotingError] = useState(false);
   const { topic } = useParams();
 
-  console.log(isInvalidTopic, '< INV TOP');
-
   useEffect(() => {
     setIsInvalidTopic(false);
     if (isError) {
@@ -27,7 +25,7 @@ function ArticleList() {
         setIsInvalidTopic(!isValid);
       });
     }
-  }, [isError, setIsInvalidTopic]);
+  }, [isError, setIsInvalidTopic, topic]);
 
   useEffect(() => {
     setFilters((currentFilters) => {
@@ -73,7 +71,12 @@ function ArticleList() {
   );
 
   return isInvalidTopic ? (
-    <PageNotFound />
+    <PageNotFound
+      currentTopic={currentTopic}
+      setCurrentTopic={setCurrentTopic}
+      setIsInvalidTopic={setIsInvalidTopic}
+      setIsError={setIsError}
+    />
   ) : (
     <>
       <SideBar />

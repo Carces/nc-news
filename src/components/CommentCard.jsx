@@ -41,7 +41,9 @@ function CommentCard({ comment, setComments, index }) {
       alt={`avatar for user ${author}`}
     />
   );
-  const avatarPlaceholderHTML = <AccountCircleIcon />;
+  const avatarPlaceholderHTML = (
+    <AccountCircleIcon className="comment-card__avatar-placeholder" />
+  );
   const deleteButtonHTML = (
     <button
       className="comment-card__button comment-card__delete-button"

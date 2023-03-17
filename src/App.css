@@ -184,10 +184,23 @@ a {
   /* width: 50vw; */
 }
 
+/* CommentCard */
+
 .comment-card {
+  text-align: left;
   background-color: rgb(221, 221, 221);
   padding: 10px;
+  border: 1px solid grey;
   border-radius: 3px;
+}
+
+.comment-card__avatar {
+  background-color: white;
+  width: 15vw;
+  height: 15vw;
+  object-fit: scale-down;
+  border: 1px solid gray;
+  border-radius: 50%;
 }
 
 /* CommentBox */
@@ -195,11 +208,11 @@ a {
 .comment-box {
   text-align: center;
   position: relative;
-  margin-bottom: 10px;
+  margin-bottom: 0;
 }
 
 .comment-box__input {
-  width: 90.5%;
+  width: 98.5%;
   height: 50px;
   resize: none;
   border-radius: 0;
@@ -209,7 +222,7 @@ a {
 
 .comment-box__button {
   position: absolute;
-  right: 15px;
+  right: 0;
   bottom: 4px;
 }
 
@@ -218,11 +231,10 @@ a {
   position: relative;
   top: 2px;
   text-align: left;
-  margin: 0 15px;
-  margin-left: 15px;
+  margin: 0;
   font-size: 0.85em;
   padding: 5px;
-  padding-top: 1px;
+  padding-top: 3px;
   border: 1px solid black;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
@@ -275,8 +287,37 @@ a {
 .side-bar__label {
   background-color: #a82525;
   font-weight: bold;
-  color: #e7e7e7;
+  color: #eeeeee;
   padding: 2px 15vw;
+}
+
+/* PageNotFound */
+
+.page-not-found {
+  background-color: rgb(231, 231, 231);
+  padding: 30px;
+  position: relative;
+  top: 50px;
+  height: 100vh;
+}
+
+.page-not-found__404 {
+  font-size: 3em;
+}
+
+.page-not-found__text {
+  margin-bottom: 40px;
+}
+
+.page-not-found__button {
+  background-color: #a82525;
+  font-weight: bold;
+  color: #eeeeee;
+  font-size: 1.2em;
+  margin: 0 7px;
+  padding: 10px;
+  border: 1px solid rgb(110, 110, 110);
+  border-radius: 20px;
 }
 
 @media screen and (min-device-width: 500px) {

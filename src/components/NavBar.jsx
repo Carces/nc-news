@@ -1,5 +1,5 @@
-import { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useContext, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
 
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import logo from '../img/logo.png';
@@ -33,8 +33,17 @@ function NavBar() {
   const [userMenuShown, setUserMenuShown] = useState(false);
   const [topicMenuShown, setTopicMenuShown] = useState(false);
   const { currentUser } = useContext(CurrentUserContext);
+  const URLSections = window.location.href.split('/');
+  const topic = URLSections[URLSections.length - 1];
   const mobileScreenMatcher = window.matchMedia('(max-width: 500px)');
   //   console.log(mobileScreenMatcher.matches);
+
+  useEffect(() => {
+    if (topic) {
+      const formattedTopic = topic.charAt(0).toUpperCase() + topic.slice(1);
+      setCurrentTopic(formattedTopic);
+    } else setCurrentTopic('Home');
+  });
 
   return (
     <nav className="nav-bar">

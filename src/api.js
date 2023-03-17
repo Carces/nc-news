@@ -3,7 +3,11 @@ import axios from 'axios';
 const api = axios.create({ baseURL: 'https://nc-news-theo.onrender.com/api/' });
 
 export const fetchArticles = (filters) => {
+  const { topic } = filters;
+
   let path = '/articles';
+  if (topic && topic !== 'Home') path += `?topic=${topic.toLowerCase()}`;
+
   return api.get(path).then(({ data: { articles } }) => articles);
 };
 

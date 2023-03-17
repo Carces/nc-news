@@ -3,9 +3,13 @@ import axios from 'axios';
 const api = axios.create({ baseURL: 'https://nc-news-theo.onrender.com/api/' });
 
 export const fetchArticles = (filters) => {
+  const { topic } = filters;
+
   const { sort_by, order } = filters;
 
   let path = '/articles?limit=10';
+  if (topic && topic !== 'Home') path += `?topic=${topic.toLowerCase()}`;
+
   if (sort_by) path += `&sort_by=${sort_by}`;
   if (order) path += `&order=${order}`;
 

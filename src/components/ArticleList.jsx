@@ -1,4 +1,5 @@
 import { useState, useContext, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { FiltersContext } from '../contexts/FiltersContext';
 import { fetchArticles } from '../api';
 
@@ -13,6 +14,13 @@ function ArticleList() {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isVotingError, setIsVotingError] = useState(false);
+  const { topic } = useParams();
+
+  useEffect(() => {
+    setFilters((currentFilters) => {
+      return { ...currentFilters, topic };
+    });
+  }, [topic]);
 
   useEffect(() => {
     setIsError(false);

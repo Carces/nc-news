@@ -52,3 +52,8 @@ export const patchUserArticleVotes = (username, article_id, vote_value) => {
     .patch(path, { article_id, vote_value })
     .then(({ data: { updatedUser } }) => updatedUser);
 };
+
+export const checkIfTopicValid = (topic) => {
+  const path = `/topics`;
+  return api.get(path).then(({ data: { topics } }) => topics.includes(topic));
+};

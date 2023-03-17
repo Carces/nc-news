@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { FiltersContext } from '../contexts/FiltersContext';
-import { fetchArticles } from '../api';
+import { fetchArticles, checkIfTopicValid } from '../api';
 
 import Alert from '@mui/material/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -15,6 +15,14 @@ function ArticleList() {
   const [isError, setIsError] = useState(false);
   const [isVotingError, setIsVotingError] = useState(false);
   const { topic } = useParams();
+
+  // useEffect(() => {
+  //   if (isError) {
+  //     checkIfTopicValid(topic).then((res) => {
+  //       console.log(res, 'RES TOPIC VAL');
+  //     });
+  //   }
+  // });
 
   useEffect(() => {
     setFilters((currentFilters) => {

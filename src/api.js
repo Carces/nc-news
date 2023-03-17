@@ -29,11 +29,17 @@ export const fetchComments = (article_id) => {
 };
 
 export const postComment = (article_id, comment) => {
-  console.log(comment);
   let path = `/articles/${article_id}/comments`;
   return api
     .post(path, comment)
     .then(({ data: { postedComment } }) => postedComment);
+};
+
+export const deleteComment = (comment_id) => {
+  let path = `/comments/${comment_id}`;
+  return api.delete(path).then(() => ({
+    deletedCommentID: comment_id,
+  }));
 };
 
 export const patchArticleVotes = (article_id, inc_votes) => {

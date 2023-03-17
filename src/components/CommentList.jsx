@@ -36,7 +36,12 @@ function CommentList({ article_id }) {
   }, [article_id]);
 
   const commentCards = comments.map((comment, index) => (
-    <CommentCard comment={comment} key={`comment-list__index-${index}`} />
+    <CommentCard
+      comment={comment}
+      key={`comment-list__index-${index}`}
+      setComments={setComments}
+      index={index}
+    />
   ));
   const errorHTML = (
     <Alert severity="error" className="comment-list__error alert">

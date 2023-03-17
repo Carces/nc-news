@@ -44,7 +44,7 @@ function CommentBox({ article_id, setNewUserComment }) {
       ></textarea>
       <button
         className="comment-box__button"
-        disabled={!commentText ? 'true' : ''}
+        disabled={!commentText ? true : ''}
       >
         Add Comment
       </button>

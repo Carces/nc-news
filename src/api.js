@@ -3,54 +3,51 @@ import axios from 'axios';
 const api = axios.create({ baseURL: 'https://nc-news-theo.onrender.com/api/' });
 
 export const fetchArticles = (filters) => {
-  const { topic } = filters;
+  const { topic, sort_by, order } = filters;
 
-  const { sort_by, order } = filters;
+  const path = '/articles';
+  const params = { limit: 10, sort_by, order };
+  if (topic && topic !== 'Home') params.topic = topic.toLowerCase();
 
-  let path = '/articles?limit=10';
-  if (topic && topic !== 'Home') path += `?topic=${topic.toLowerCase()}`;
-
-  if (sort_by) path += `&sort_by=${sort_by}`;
-  if (order) path += `&order=${order}`;
-
-  return api.get(path).then(({ data: { articles } }) => articles);
+  return api.get(path, { params }).then(({ data: { articles } }) => articles);
 };
 
 export const fetchArticleByID = (article_id, username) => {
-  let path = `/articles/${article_id}?current_user=${username}`;
-  return api.get(path).then(({ data: { article } }) => {
+  const path = `/articles/${article_id}`;
+  const params = { current_user: username };
+  return api.get(path, { params }).then(({ data: { article } }) => {
     return article;
   });
 };
 
 export const fetchComments = (article_id) => {
-  let path = `/articles/${article_id}/comments`;
+  const path = `/articles/${article_id}/comments`;
   return api.get(path).then(({ data: { comments } }) => comments);
 };
 
 export const postComment = (article_id, comment) => {
-  let path = `/articles/${article_id}/comments`;
+  const path = `/articles/${article_id}/comments`;
   return api
     .post(path, comment)
     .then(({ data: { postedComment } }) => postedComment);
 };
 
 export const deleteComment = (comment_id) => {
-  let path = `/comments/${comment_id}`;
+  const path = `/comments/${comment_id}`;
   return api.delete(path).then(() => ({
     deletedCommentID: comment_id,
   }));
 };
 
 export const patchArticleVotes = (article_id, inc_votes) => {
-  let path = `/articles/${article_id}`;
+  const path = `/articles/${article_id}`;
   return api
     .patch(path, { inc_votes })
     .then(({ data: { updatedArticle } }) => updatedArticle);
 };
 
 export const patchUserArticleVotes = (username, article_id, vote_value) => {
-  let path = `/users/${username}`;
+  const path = `/users/${username}`;
   return api
     .patch(path, { article_id, vote_value })
     .then(({ data: { updatedUser } }) => updatedUser);

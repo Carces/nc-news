@@ -10,7 +10,7 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import CommentOutlinedIcon from '@mui/icons-material/CommentOutlined';
 import BookmarkAddOutlinedIcon from '@mui/icons-material/BookmarkAddOutlined';
 
-function ArticleCard({ article, setIsVotingError }) {
+function ArticleCard({ article, setIsVotingError, inArticlePage }) {
   const [userVote, setUserVote] = useState(0);
   const {
     currentUser: { username },
@@ -52,7 +52,13 @@ function ArticleCard({ article, setIsVotingError }) {
   }
 
   return (
-    <li className="article-card">
+    <li
+      className={
+        inArticlePage
+          ? 'article-card article-page__article-card'
+          : 'article-card'
+      }
+    >
       <button className="info-bar__share-button">Share</button>
       <Link to={`/articles/${article_id}`}>
         <h2 className="article-card__header">{title}</h2>

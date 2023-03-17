@@ -71,7 +71,9 @@ function ArticlePage() {
             article={article}
             setIsVotingError={setIsVotingError}
             isVotingError={isVotingError}
+            inArticlePage={true}
           />
+          <p className="article-page__body">{article.body}</p>
           <section className="article-page__comments">
             <CommentList article_id={article_id} />
           </section>

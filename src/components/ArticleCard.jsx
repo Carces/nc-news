@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
-import { patchArticleVotes, patchUserArticleVotes } from '../api';
-import { useState, useContext, useEffect } from 'react';
+import { patchArticleVotes } from '../api';
+// import { useState, useContext } from 'react';
+import { useState } from 'react';
 
-import { CurrentUserContext } from '../contexts/CurrentUserContext';
+// import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
@@ -12,9 +13,9 @@ import BookmarkAddOutlinedIcon from '@mui/icons-material/BookmarkAddOutlined';
 
 function ArticleCard({ article, setIsVotingError, inArticlePage }) {
   const [userVote, setUserVote] = useState(0);
-  const {
-    currentUser: { username },
-  } = useContext(CurrentUserContext);
+  // const {
+  //   currentUser: { username },
+  // } = useContext(CurrentUserContext);
 
   const {
     article_id,

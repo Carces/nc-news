@@ -55,5 +55,10 @@ export const patchUserArticleVotes = (username, article_id, vote_value) => {
 
 export const checkIfTopicValid = (topic) => {
   const path = `/topics`;
-  return api.get(path).then(({ data: { topics } }) => topics.includes(topic));
+  return api
+    .get(path)
+    .then(
+      ({ data: { topics } }) =>
+        !!topics.find((fetchedTopic) => fetchedTopic.slug === topic)
+    );
 };

@@ -7,22 +7,27 @@ import Alert from '@mui/material/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
 import ArticleCard from './ArticleCard';
 import SideBar from './SideBar';
+import PageNotFound from './PageNotFound';
 
 function ArticleList() {
   const { filters, setFilters } = useContext(FiltersContext);
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [isInvalidTopic, setIsInvalidTopic] = useState(false);
   const [isVotingError, setIsVotingError] = useState(false);
   const { topic } = useParams();
 
-  // useEffect(() => {
-  //   if (isError) {
-  //     checkIfTopicValid(topic).then((res) => {
-  //       console.log(res, 'RES TOPIC VAL');
-  //     });
-  //   }
-  // });
+  console.log(isInvalidTopic, '< INV TOP');
+
+  useEffect(() => {
+    setIsInvalidTopic(false);
+    if (isError) {
+      checkIfTopicValid(topic).then((isValid) => {
+        setIsInvalidTopic(!isValid);
+      });
+    }
+  }, [isError, setIsInvalidTopic]);
 
   useEffect(() => {
     setFilters((currentFilters) => {
@@ -67,7 +72,9 @@ function ArticleList() {
     </Alert>
   );
 
-  return (
+  return isInvalidTopic ? (
+    <PageNotFound />
+  ) : (
     <>
       <SideBar />
       <ul className="article-list page-content">

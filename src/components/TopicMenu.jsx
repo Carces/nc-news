@@ -28,7 +28,7 @@ function TopicMenu({
             value="Home"
             onClick={changeTopic}
           >
-            Home
+            News
           </button>
         </Link>
       )}

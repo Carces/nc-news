@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from 'react';
+import { useState, useContext, useEffect, forceUpdate } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
@@ -29,7 +29,11 @@ function NavBar() {
     }
   }
 
-  const [currentTopic, setCurrentTopic] = useState('Home');
+  function resetTopic() {
+    setCurrentTopic('News');
+  }
+
+  const [currentTopic, setCurrentTopic] = useState('News');
   const [userMenuShown, setUserMenuShown] = useState(false);
   const [topicMenuShown, setTopicMenuShown] = useState(false);
   const { currentUser } = useContext(CurrentUserContext);
@@ -39,11 +43,12 @@ function NavBar() {
   //   console.log(mobileScreenMatcher.matches);
 
   useEffect(() => {
+    console.log(topic, 'TOYO');
     if (topic) {
       const formattedTopic = topic.charAt(0).toUpperCase() + topic.slice(1);
       setCurrentTopic(formattedTopic);
-    } else setCurrentTopic('Home');
-  });
+    } else setCurrentTopic('News');
+  }, [topic]);
 
   return (
     <nav className="nav-bar">
@@ -53,6 +58,7 @@ function NavBar() {
           alt="NC News logo"
           className="nav-bar__main-logo"
           aria-label="Logo - go to home page"
+          onClick={resetTopic}
         />
       </Link>
       <button

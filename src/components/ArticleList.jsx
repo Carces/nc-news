@@ -17,6 +17,7 @@ function ArticleList() {
   const { topic } = useParams();
 
   useEffect(() => {
+    console.log(filters, 'hahaha');
     setFilters((currentFilters) => {
       return { ...currentFilters, topic };
     });

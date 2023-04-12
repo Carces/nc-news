@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# NC News
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+News aggregator web app where users can comment and vote on articles, built using React.
 
-## Available Scripts
+The deployed version is hosted using Netlify, and can be found at https://nc-news-carces.netlify.app/
 
-In the project directory, you can run:
+Back-end uses my NC News API, which can be found at https://github.com/Carces/be-nc-news
 
-### `npm start`
+## Table of Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1.  [Documentation](#documentation)
+    1.  [Features](#features)
+    2.  [Limitations](#limitations)
+2.  [Credits](#credits)
+3.  [License](#support)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Documentation
 
-### `npm test`
+The front-end web app was built using create-react-app, and axios was used for making calls to the back-end API.
+Deployed to Netlify using Netlify CLI.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
 
-### `npm run build`
+- Presents users with a Reddit-style feed of news articles.
+- Each topic has its own page, to view only articles related to that topic.
+- Users can upvote and downvote articles and comments.
+- Users can post and delete their own comments on an article.
+- Articles can be sorted by number of votes, number of comments, or time posted, in either ascending or descending order.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Limitations
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+User login and registration has not yet been implemented - comments are currently posted as a hardcoded demo user.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The back-end API is hosted using the free tier of Render, which means that the API is suspended when not in use.
+As a result, the first time you view the web app, it may take around 30 seconds for the API to start up and begin supplying data.
 
-### `npm run eject`
+The UI was designed mobile-first, but due to time constraints has not yet been optimised for desktop viewing. 
+For best results, please use a mobile device to view.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Multiple planned features have not yet been added, such as allowing users to post new articles, create new topics and view user profiles.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Credits
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+NC News was originally produced as part of project for the Northcoders software development bootcamp.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The seed data (articles, topics, users etc.) in the NC News database was supplied by Northcoders.
 
-## Learn More
+# License
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Copyright (c) 2023 Theo Johnson (GitHub: Carces)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Licensed under the MIT license.

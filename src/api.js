@@ -7,7 +7,7 @@ export const fetchArticles = (filters) => {
 
   const path = '/articles';
   const params = { limit: 10, sort_by, order };
-  if (topic && topic !== 'Home') params.topic = topic.toLowerCase();
+  if (topic && topic !== 'News') params.topic = topic.toLowerCase();
 
   return api.get(path, { params }).then(({ data: { articles } }) => articles);
 };

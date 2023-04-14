@@ -61,7 +61,11 @@ function NavBar({ currentTopic, setCurrentTopic }) {
         />
       </Link>
       <button
-        className="nav-bar__button nav-bar__topic-button"
+        className={
+          topicMenuShown
+            ? 'nav-bar__button nav-bar__topic-button nav-bar__topic-button-open'
+            : 'nav-bar__button nav-bar__topic-button'
+        }
         onClick={toggleTopicMenu}
         onBlur={closeTopicMenu}
       >

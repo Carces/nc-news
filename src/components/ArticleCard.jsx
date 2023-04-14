@@ -60,7 +60,6 @@ function ArticleCard({ article, setIsVotingError, inArticlePage }) {
           : 'article-card'
       }
     >
-      <button className="info-bar__share-button">Share</button>
       <Link to={`/articles/${article_id}`}>
         <h2 className="article-card__header">{title}</h2>
       </Link>
@@ -77,7 +76,7 @@ function ArticleCard({ article, setIsVotingError, inArticlePage }) {
         <span className="info-bar__author">{author}</span>
       </p>
       <section className="article-card__interactions">
-        <div className="article-card__votes">
+        <div className="article-card__interactions-div article-card__votes">
           <button
             className={
               userVote < 0
@@ -88,7 +87,7 @@ function ArticleCard({ article, setIsVotingError, inArticlePage }) {
           >
             {userVote < 0 ? <ThumbDownIcon /> : <ThumbDownOffAltIcon />}
           </button>
-          {votes + userVote}
+          <p className="article-card__votes-text">{votes + userVote}</p>
           <button
             className={
               userVote > 0
@@ -100,14 +99,21 @@ function ArticleCard({ article, setIsVotingError, inArticlePage }) {
             {userVote > 0 ? <ThumbUpIcon /> : <ThumbUpOffAltIcon />}
           </button>
         </div>
-        <button className="article-card__button">
-          <CommentOutlinedIcon />
-          {comment_count}
-        </button>
-        <button className="article-card__button">
-          <BookmarkAddOutlinedIcon />
-          {saves || 0}
-        </button>
+        <div className="article-card__interactions-right">
+          <div className="article-card__interactions-div">
+            <button className="article-card__button">
+              <CommentOutlinedIcon />
+            </button>
+            <p className="article-card__button-text">{comment_count}</p>
+          </div>
+          <div className="article-card__interactions-div">
+            <button className="article-card__button">
+              <BookmarkAddOutlinedIcon />
+            </button>
+            <p className="article-card__button-text"> {saves || 0}</p>
+          </div>
+          <button className="article-card__share-button">Share</button>
+        </div>
       </section>
     </li>
   );

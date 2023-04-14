@@ -16,11 +16,11 @@ function TopicMenu({ currentTopic, setCurrentTopic, setTopicMenuShown }) {
 
   return (
     <div className="topic-menu">
-      {currentTopic === 'Home' ? null : (
+      {currentTopic === 'News' || !currentTopic ? null : (
         <Link to="/">
           <button
             className="topic-menu__button"
-            value="Home"
+            value="News"
             onClick={changeTopic}
           >
             News

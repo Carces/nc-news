@@ -1,20 +1,31 @@
 import { useState, useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { FiltersContext } from '../contexts/FiltersContext';
-import { fetchArticles } from '../api';
+import { fetchArticles, checkIfTopicValid } from '../api';
 
 import Alert from '@mui/material/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
 import ArticleCard from './ArticleCard';
 import SideBar from './SideBar';
+import PageNotFound from './PageNotFound';
 
-function ArticleList() {
+function ArticleList({ currentTopic, setCurrentTopic }) {
   const { filters, setFilters } = useContext(FiltersContext);
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [isInvalidTopic, setIsInvalidTopic] = useState(false);
   const [isVotingError, setIsVotingError] = useState(false);
   const { topic } = useParams();
+
+  useEffect(() => {
+    setIsInvalidTopic(false);
+    if (isError) {
+      checkIfTopicValid(topic).then((isValid) => {
+        setIsInvalidTopic(!isValid);
+      });
+    }
+  }, [isError, setIsInvalidTopic, topic]);
 
   useEffect(() => {
     setFilters((currentFilters) => {
@@ -59,7 +70,14 @@ function ArticleList() {
     </Alert>
   );
 
-  return (
+  return isInvalidTopic ? (
+    <PageNotFound
+      currentTopic={currentTopic}
+      setCurrentTopic={setCurrentTopic}
+      setIsInvalidTopic={setIsInvalidTopic}
+      setIsError={setIsError}
+    />
+  ) : (
     <>
       <SideBar />
       <ul className="article-list page-content">

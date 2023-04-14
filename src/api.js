@@ -7,7 +7,7 @@ export const fetchArticles = (filters) => {
 
   const path = '/articles';
   const params = { limit: 10, sort_by, order };
-  if (topic && topic !== 'Home') params.topic = topic.toLowerCase();
+  if (topic && topic !== 'News') params.topic = topic.toLowerCase();
 
   return api.get(path, { params }).then(({ data: { articles } }) => articles);
 };
@@ -56,4 +56,14 @@ export const patchUserArticleVotes = (username, article_id, vote_value) => {
 export const fetchUser = (username) => {
   const path = `/users/${username}`;
   return api.get(path).then(({ data: { user } }) => user);
+};
+
+export const checkIfTopicValid = (topic) => {
+  const path = `/topics`;
+  return api
+    .get(path)
+    .then(
+      ({ data: { topics } }) =>
+        !!topics.find((fetchedTopic) => fetchedTopic.slug === topic)
+    );
 };

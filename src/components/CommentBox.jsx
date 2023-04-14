@@ -35,7 +35,7 @@ function CommentBox({ article_id, setNewUserComment }) {
 
   return (
     <form className="comment-box" onSubmit={handleSubmit}>
-      <h4 className="comment-box__header">Commenting as {username}</h4>
+      <h4 className="comment-box__header">Comment as {username}</h4>
       <textarea
         className="comment-box__input"
         value={commentText}

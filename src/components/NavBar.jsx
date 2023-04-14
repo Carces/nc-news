@@ -8,7 +8,7 @@ import logo from '../img/logo.png';
 import SearchBar from './SearchBar';
 import TopicMenu from './TopicMenu';
 
-function NavBar() {
+function NavBar({ currentTopic, setCurrentTopic }) {
   // function toggleUserMenu() {
   //   setUserMenuShown(!userMenuShown);
   // }
@@ -34,12 +34,11 @@ function NavBar() {
     setCurrentTopic('News');
   }
 
-  const [currentTopic, setCurrentTopic] = useState('News');
   // const [userMenuShown, setUserMenuShown] = useState(false);
   const [topicMenuShown, setTopicMenuShown] = useState(false);
   // const { currentUser } = useContext(CurrentUserContext);
   const URLSections = window.location.href.split('/');
-  const topic = URLSections[URLSections.length - 1];
+  const topic = URLSections[3] === 'articles' ? null : URLSections[3];
   // const mobileScreenMatcher = window.matchMedia('(max-width: 500px)');
   //   console.log(mobileScreenMatcher.matches);
 
@@ -48,7 +47,7 @@ function NavBar() {
       const formattedTopic = topic.charAt(0).toUpperCase() + topic.slice(1);
       setCurrentTopic(formattedTopic);
     } else setCurrentTopic('News');
-  }, [topic]);
+  }, [topic, setCurrentTopic]);
 
   return (
     <nav className="nav-bar">
@@ -62,7 +61,11 @@ function NavBar() {
         />
       </Link>
       <button
-        className="nav-bar__button nav-bar__topic-button"
+        className={
+          topicMenuShown
+            ? 'nav-bar__button nav-bar__topic-button nav-bar__topic-button-open'
+            : 'nav-bar__button nav-bar__topic-button'
+        }
         onClick={toggleTopicMenu}
         onBlur={closeTopicMenu}
       >

@@ -16,10 +16,7 @@ function SideBar() {
   useEffect(() => {
     setFilters((currentFilters) => {
       const updatedFilters = { ...currentFilters };
-      if (sortBy === 'Date') updatedFilters.sort_by = 'created_at';
-      else if (sortBy === 'Comments') updatedFilters.sort_by = 'comment_count';
-      else if (sortBy) updatedFilters.sort_by = sortBy.toLowerCase();
-
+      if (sortBy) updatedFilters.sort_by = sortBy;
       if (sortOrder)
         updatedFilters.order = sortOrder === 'Descending' ? 'desc' : 'asc';
       return updatedFilters;
@@ -38,9 +35,9 @@ function SideBar() {
           value={sortBy}
           onChange={(event) => setSortBy(event.target.value)}
         >
-          <option value="Votes">Votes</option>
-          <option value="Date">Date</option>
-          <option value="Comments">Comments</option>
+          <option value="votes">Votes</option>
+          <option value="created_at">Date</option>
+          <option value="comment_count">Comments</option>
         </select>
       </section>
       <section className="side-bar__sort-order side-bar__section">

@@ -32,6 +32,7 @@ function NavBar({ currentTopic, setCurrentTopic }) {
 
   function resetTopic() {
     setCurrentTopic('News');
+    setTopicMenuShown(false);
   }
 
   // const [userMenuShown, setUserMenuShown] = useState(false);

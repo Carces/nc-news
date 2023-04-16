@@ -43,7 +43,11 @@ function CommentBox({ article_id, setNewUserComment }) {
         onChange={(event) => setCommentText(event.target.value)}
       ></textarea>
       <button
-        className="comment-box__button"
+        className={
+          !commentText || isError
+            ? 'comment-box__button comment-box__button--disabled'
+            : 'comment-box__button'
+        }
         disabled={!commentText || isError ? true : ''}
       >
         Add Comment

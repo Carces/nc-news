@@ -64,7 +64,7 @@ function NavBar({ currentTopic, setCurrentTopic }) {
       <button
         className={
           topicMenuShown
-            ? 'nav-bar__button nav-bar__topic-button nav-bar__topic-button-open'
+            ? 'nav-bar__button nav-bar__topic-button nav-bar__topic-button--open'
             : 'nav-bar__button nav-bar__topic-button'
         }
         onClick={toggleTopicMenu}

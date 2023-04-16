@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   background-color: #ecebeb;
+  color: #1a1a1a;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
 }
@@ -16,6 +17,15 @@ button {
   border-radius: 10px;
   box-shadow: 0px 1px 2px #00000028;
   padding: 6px;
+  text-align: center;
+  font-weight: bold;
+}
+
+select {
+  background-color: #ffffff;
+  border: 1px solid #e7e7e7;
+  border-radius: 10px;
+  box-shadow: 0px 1px 2px #00000028;
 }
 
 .alert {
@@ -77,7 +87,7 @@ button {
   border-radius: 5px;
 }
 
-.nav-bar__topic-button-open {
+.nav-bar__topic-button--open {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -170,8 +180,8 @@ button {
 }
 
 .article-card__header {
-  margin: 10px;
-  margin-top: 0;
+  margin: 15px;
+  margin-top: 5px;
 }
 
 .article-card__img {
@@ -243,11 +253,13 @@ button {
 }
 
 .article-page__body {
+  text-align: left;
   position: relative;
   bottom: 12px;
-  background-color: rgb(240, 240, 240);
-  padding: 10px;
+  background-color: rgb(255, 255, 255);
+  padding: 15px;
   margin: 0;
+  margin-top: 12px;
   border: 1px solid rgb(187, 187, 187);
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
@@ -261,13 +273,14 @@ button {
 
 .comment-list {
   /* width: 50vw; */
+  margin-bottom: 2px;
 }
 
 /* CommentCard */
 
 .comment-card {
   text-align: left;
-  background-color: rgb(221, 221, 221);
+  background-color: rgb(236, 236, 236);
   padding: 10px;
   border: 1px solid grey;
   border-radius: 3px;
@@ -282,16 +295,31 @@ button {
   border-radius: 50%;
 }
 
+.comment-card__votes {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.comment-card__votes-text {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: 2px;
+}
+
 /* CommentBox */
 
 .comment-box {
   text-align: center;
   position: relative;
+  top: 5px;
   margin-bottom: 0;
 }
 
 .comment-box__input {
-  width: 98.5%;
+  padding: 5px;
+  width: 96.7%;
   height: 50px;
   resize: none;
   border-radius: 0;
@@ -300,13 +328,18 @@ button {
 }
 
 .comment-box__button {
+  background-color: #ffbebe;
   position: absolute;
-  right: 0;
-  bottom: 4px;
+  right: 5px;
+  bottom: 11px;
+}
+
+.comment-box__button--disabled {
+  background-color: #ecebeb;
 }
 
 .comment-box__header {
-  background-color: #bebebe;
+  background-color: #d4d4d4;
   position: relative;
   top: 2px;
   text-align: left;
@@ -341,14 +374,14 @@ button {
 }
 
 .side-bar__select {
-  padding: 0;
+  padding: 2px;
   margin: 0;
   width: fit-content;
   margin: auto;
 }
 
 .side-bar__section {
-  background-color: rgb(236, 234, 234);
+  background-color: rgb(236, 215, 215);
   flex-grow: 1;
   display: flex;
   flex-direction: column;

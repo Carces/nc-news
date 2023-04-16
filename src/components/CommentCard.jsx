@@ -66,7 +66,7 @@ function CommentCard({ comment, setComments, index }) {
         <li className="comment-card">
           {authorAvatarURL ? avatarHTML : avatarPlaceholderHTML}
 
-          {author === currentUser.author ? deleteButtonHTML : <></>}
+          {author === currentUser.username ? deleteButtonHTML : <></>}
           <p className="comment-card__info-bar">
             Posted on: <span className="info-bar__date">{date}</span>
           </p>
@@ -76,7 +76,7 @@ function CommentCard({ comment, setComments, index }) {
             <button className="comment-card__button">
               <ThumbDownOffAltIcon />
             </button>
-            {votes}
+            <p className="comment-card__votes-text">{votes}</p>
             <button className="comment-card__button">
               <ThumbUpOffAltIcon />
             </button>
